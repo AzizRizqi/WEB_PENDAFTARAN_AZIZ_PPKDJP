@@ -28,3 +28,4 @@ Route::resource('gelombang', GelombangController::class);
 Route::resource('pendaftaran', PendaftaranController::class);
 Route::resource('level', LevelController::class);
 Route::resource('jurusan', JurusanController::class);
+Route::get('peserta', PesertaPelatihanController::class)->name('peserta.show');

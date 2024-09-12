@@ -21,7 +21,7 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{ $item->nama_gelombang }}</td>
-                                <td></td>
+                                <td>{{ $item->aktif }}</td>
                                 <td>
                                     <a href="{{ route('gelombang.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <form action="" method="POST" style="display: inline;">

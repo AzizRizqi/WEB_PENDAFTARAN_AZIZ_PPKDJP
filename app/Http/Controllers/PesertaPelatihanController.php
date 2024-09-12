@@ -42,10 +42,11 @@ class PesertaPelatihanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Peserta_Pelatihan $peserta_Pelatihan)
-    {
-        //
-    }
+    public function show($id)
+{
+    $peserta = Peserta_Pelatihan::where('id', $id)->first();
+    return view('peserta.show', compact('peserta'));
+}
 
     /**
      * Show the form for editing the specified resource.

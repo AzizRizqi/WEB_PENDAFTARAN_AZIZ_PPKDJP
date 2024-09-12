@@ -20,7 +20,6 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->nama_level }}</td>
-                                <td></td>
                                 <td>
                                     <a href="{{ route('level.edit',$item->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <form action="" method="POST" style="display: inline;">
