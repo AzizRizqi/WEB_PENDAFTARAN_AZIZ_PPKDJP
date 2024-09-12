@@ -1,0 +1,131 @@
+// Variabel warna
+$background: radial-gradient(ellipse farthest-corner at left top, #f35464 30%, #841F4B 100%);
+$primary: #f35464;
+$secondary: #841F4B;
+
+// Gaya umum untuk body
+body {
+    background: $background;
+    height: 100vh;
+    font-family: 'Raleway', sans-serif;
+    color: #333;
+    margin: 0;
+}
+
+// Gaya untuk heading
+h2 {
+    color: #fff;
+    text-align: center;
+    margin: 15px;
+    font-size: 2rem;
+}
+
+// Container form
+.form-container {
+    opacity: 1;
+    box-sizing: border-box;
+    position: absolute;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    box-shadow: 0 7px 30px rgba(62, 9, 11, .3);
+    width: 100%;
+    max-width: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+// Gaya untuk setiap langkah formulir
+.form-step {
+    display: none; // Semua langkah tersembunyi secara default
+}
+
+// Menampilkan langkah aktif
+.form-step.active {
+    display: block;
+}
+
+// Gaya untuk tombol navigasi
+.nav-buttons {
+    text-align: center;
+    margin-top: 20px;
+
+    .next-btn, .prev-btn {
+        background: $primary;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: lighten($primary, 10%);
+        }
+    }
+}
+
+// Styling untuk fieldsets
+.form-group {
+    margin: 10px 0;
+    position: relative;
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input, select {
+        width: 100%;
+        height: 52px;
+        color: #333;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+
+        &:focus {
+            border-color: $primary;
+            box-shadow: inset 0 1px 1px lighten($primary, 20%), 0 0 8px lighten($primary, 30%);
+        }
+    }
+}
+
+// Styling untuk tombol submit
+.submit-btn {
+    background: $primary;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: lighten($primary, 10%);
+    }
+}
+
+// Responsif
+@media (max-width: 600px) {
+    .form-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .next-btn, .prev-btn, .submit-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
