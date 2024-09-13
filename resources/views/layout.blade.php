@@ -374,6 +374,23 @@
     </div><!--//app-wrapper-->
 
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('click', '#submit', function(e) {
+                    e.preventDefault();
+                    var link = $(this).attr("href");
+
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your work has been saved",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                });
+            })
+    </script>
     <!-- Javascript -->
     <script src="{{ asset('admin/assets/plugins/popper.min.js') }}"></script>
     <script src="{{ asset('admin/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>

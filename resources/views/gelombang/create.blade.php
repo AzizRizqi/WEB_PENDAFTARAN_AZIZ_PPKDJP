@@ -12,7 +12,7 @@
             <label for="level">aktif:</label>
             <input type="number" class="form-control" id="aktif" name="aktif" required>
         </div>
-        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button id="submit" type="submit" class="btn btn-primary">Simpan</button>
         <a href="{{ route('user.index') }}" class="btn btn-secondary">Kembali</a>
     </form>
 @endsection

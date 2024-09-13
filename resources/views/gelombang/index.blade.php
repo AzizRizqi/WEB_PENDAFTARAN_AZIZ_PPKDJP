@@ -1,5 +1,10 @@
 @extends('layout')
 @section('content')
+@if (Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    @endif
     <h1>gelombang</h1>
 
     <div class="card">
@@ -18,19 +23,26 @@
                         </thead>
                         <tbody>
                             @foreach ($gelombang as $item)
-                            <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{ $item->nama_gelombang }}</td>
-                                <td>{{ $item->aktif }}</td>
-                                <td>
-                                    <a href="{{ route('gelombang.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                                    <form action="" method="POST" style="display: inline;">
-                                        @csrf
-                                        {{-- @method('DELETE') --}}
-                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->nama_gelombang }}</td>
+                                    <td>
+                                        @if ($item->aktif == 1)
+                                            <span class="badge bg-success">Aktif</span>
+                                        @else
+                                            <span class="badge bg-danger">Tidak Aktif</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('gelombang.edit', $item->id) }}"
+                                            class="btn btn-sm btn-warning">Edit</a>
+                                        <form action="" method="POST" style="display: inline;">
+                                            @csrf
+                                            {{-- @method('DELETE') --}}
+                                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

@@ -1,12 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f2f4f7;
+    background-color: #c2c8cf;
     margin: 0;
     padding: 0;
 }
 
 .form-container {
-    max-width: 570px;
+    max-width: 800px; /* increased from 570px to 800px */
     margin: 40px auto;
     padding: 40px;
     background-color: #fff;
@@ -70,13 +70,14 @@ input[type="email"]:focus {
 }
 
 .info-section {
-    max-width: 570px;
+    max-width: 1000px;
     margin: 40px auto;
     padding: 20px;
     background-color: #f8f9fc;
     border: 1px solid #dde3ec;
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
+    text-align: left; /* add this to make the text align to the left */
 }
 
 .info-section h1 {
@@ -99,3 +100,5 @@ input[type="email"]:focus {
 .info-section ul li {
     margin-bottom: 10px;
 }
+
+

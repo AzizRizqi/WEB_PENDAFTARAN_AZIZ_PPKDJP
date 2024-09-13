@@ -13,11 +13,11 @@ class PesertaPelatihanController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-{
-    $peserta = Peserta_Pelatihan::all(); // Fetch all peserta_pelatihan records from the database
-    // dd($peserta);
-    return view('peserta.index', compact('peserta'));
-}
+    {
+        $peserta = Peserta_Pelatihan::all(); // Fetch all peserta_pelatihan records from the database
+        // dd($peserta);
+        return view('peserta.index', compact('peserta'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -28,14 +28,13 @@ class PesertaPelatihanController extends Controller
         $gelombang = Gelombang::all();
         $peserta = Peserta_Pelatihan::get();
 
-        return view('peserta.index',compact('peserta','jurusan','gelombang'));
+        return view('peserta.index', compact('peserta', 'jurusan', 'gelombang'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
 
     }
 
@@ -43,32 +42,57 @@ class PesertaPelatihanController extends Controller
      * Display the specified resource.
      */
     public function show($id)
-{
-    $peserta = Peserta_Pelatihan::where('id', $id)->first();
-    return view('peserta.show', compact('peserta'));
-}
+    {
+
+        $peserta = Peserta_Pelatihan::where('id', $id)->first();
+        return view('peserta.show', compact('peserta'));
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Peserta_Pelatihan $peserta_Pelatihan)
+    public function edit(Request $request, $id)
     {
-        //
+        $gelombang = Gelombang::all();
+        $jurusan = Jurusan::all();
+        $edit = Peserta_Pelatihan::findOrFail($id);
+        return view('peserta.edit', compact('edit','jurusan','gelombang'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Peserta_Pelatihan $peserta_Pelatihan)
+    // In PesertaPelatihanController.php
+
+    public function update(Request $request, $id)
     {
-        //
+        Peserta_Pelatihan::where('id',$id)->update([
+            'id_jurusan'=> $request->id_jurusan,
+            'id_gelombang'=> $request->id_gelombang,
+            'nama_lengkap'=>$request->nama_lengkap,
+            'nik'=>$request->nik,
+            'kartu_keluarga'=>$request->kartu_keluarga,
+            'jenis_kelamin'=>$request->jenis_kelamin,
+            'tampat_lahir'=>$request->tampat_lahir,
+            'tanggal_lahir'=>$request->tanggal_lahir,
+            'pendidikan_terakhir'=>$request->pendidikan_terakhir,
+            'nama_sekolah'=>$request->nama_sekolah,
+            'kejuruan'=>$request->kejuruan,
+            'nomer_hp'=>$request->nomer_hp,
+            'email'=>$request->email,
+            'aktivitas_saat_ini'=>$request->aktivitas_saat_ini,
+            'status'=>$request->status
+        ]);
+        return redirect()->to('peserta')->with('massage','Edit peserta berhasil');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Peserta_Pelatihan $peserta_Pelatihan)
+    public function destroy(string $id)
     {
-        //
+        Peserta_Pelatihan::where('id',$id)->delete();
+        return redirect()->route('peserta.index')->with('success', 'Data Peserta Berhasil Dihapus');
     }
 }

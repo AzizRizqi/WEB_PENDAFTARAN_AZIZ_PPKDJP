@@ -14,12 +14,14 @@ use Illuminate\Support\Facades\Route;
 
 
 
-// Route::get('/', function () {
-//     return view('login.index');
-// });
-Route::get('login', [LoginController::class, 'indexLogin']);
+Route::get('/', function () {
+    return view('web-daftar');
+});
+Route::get('login', [LoginController::class, 'pendaftaran']);
 Route::get('layout', [LoginController::class, 'index'])->name('dashboard');
 Route::post('action-login', [LoginController::class, 'login'])->name('action-login');
+
+
 
 
 Route::resource('user', UserController::class);

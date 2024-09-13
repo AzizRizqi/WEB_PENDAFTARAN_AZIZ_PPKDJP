@@ -16,31 +16,31 @@
         </p>
         <p>Adapun Pelatihan yang diselenggarakan adalah :</p>
         <ul>
-            <li>1. Operator Komputer</li>
-            <li>2. Bahasa Inggris</li>
-            <li>3. Desain Grafis</li>
-            <li>4. Tata Boga</li>
-            <li>5. Tata Busana</li>
-            <li>6. Tata Graha</li>
-            <li>7. Teknik Pendingin</li>
-            <li>8. Teknik Komputer</li>
-            <li>9. Otomotif Sepeda Motor</li>
-            <li>10. Jaringan Komputer</li>
-            <li>11. Barista</li>
-            <li>12. Bahasa Korea</li>
-            <li>13. Make Up Artist</li>
-            <li>14. Multimedia - Video Editor</li>
-            <li>15. Content Creator</li>
-            <li>16. Web Programming</li>
+            <li>Operator Komputer</li>
+            <li>Bahasa Inggris</li>
+            <li>Desain Grafis</li>
+            <li>Tata Boga</li>
+            <li>Tata Busana</li>
+            <li>Tata Graha</li>
+            <li>Teknik Pendingin</li>
+            <li>Teknik Komputer</li>
+            <li>Otomotif Sepeda Motor</li>
+            <li>Jaringan Komputer</li>
+            <li>Barista</li>
+            <li>Bahasa Korea</li>
+            <li>Make Up Artist</li>
+            <li>Multimedia - Video Editor</li>
+            <li>Content Creator</li>
+            <li>Web Programming</li>
         </ul>
         <p>Sebelum melanjutkan ke halaman berikutnya, pastikan syarat pendaftaran berikut sudah disiapkan:</p>
         <ul>
-            <li>1. Softcopy KTP DKI Jakarta</li>
-            <li>2. Sofcopy Kartu Keluarga</li>
-            <li>3. Softcopy ijazah terakhir</li>
-            <li>4. Softcopy Pas foto 3 x 4 (latar belakang merah)</li>
-            <li>5. Softcopy Sertifikat Vaksin Covid-19</li>
-            <li>6. Surat Keterangan Domisili DKI Jakarta bagi KTP Luar DKI Jakarta</li>
+            <li>Softcopy KTP DKI Jakarta</li>
+            <li>Sofcopy Kartu Keluarga</li>
+            <li>Softcopy ijazah terakhir</li>
+            <li>Softcopy Pas foto 3 x 4 (latar belakang merah)</li>
+            <li>Softcopy Sertifikat Vaksin Covid-19</li>
+            <li>Surat Keterangan Domisili DKI Jakarta bagi KTP Luar DKI Jakarta</li>
         </ul>
         <p><strong>* Semua persyaratan tersebut diupload di form pendaftaran</strong></p>
         <p>
@@ -66,8 +66,8 @@
 
             <div class="form-group">
                 <label for="gelombang">Gelombang</label>
-                <select name="id_gelombang" id="id_gelombang" class="form-control">
-                    @foreach ($gelombang as $item)
+                <select name="id_gelombang" id="id_gelombang" class="form-control" readonly>
+                    @foreach ($gelombang->where('aktif',1) as $item)
                         <option value="{{ $item->id }}">{{ $item->nama_gelombang }}</option>
                     @endforeach
                 </select>
@@ -135,11 +135,6 @@
             <div class="form-group">
                 <label for="aktivitas_saat_ini">Aktivitas Saat ini *</label>
                 <input type="text" id="aktivitas_saat_ini" name="aktivitas_saat_ini" required>
-            </div>
-
-            <div class="form-group">
-                <label for="status">Status *</label>
-                <input type="text" id="status" name="status">
             </div>
 
             <div class="form-group">

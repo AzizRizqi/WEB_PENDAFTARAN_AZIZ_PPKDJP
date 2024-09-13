@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gelombang;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class GelombangController extends Controller
 {
@@ -60,11 +62,13 @@ class GelombangController extends Controller
     {
         $edit = Gelombang::find($id);
 
-        Gelombang::where('id',$id)->update([
-            'nama_gelombang'=> $request->nama_gelombang,
+        $edit->update([
+            'nama_gelombang' => $request->nama_gelombang,
             'aktif' => $request->aktif,
         ]);
-        return redirect()->to('gelombang.index')->with('success', 'Gelombang Berhasil di Edit');
+
+        Session::flash('success', 'status Berhasil di Edit');
+        return redirect()->to('gelombang');
     }
 
     /**

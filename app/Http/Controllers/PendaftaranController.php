@@ -19,7 +19,7 @@ class PendaftaranController extends Controller
     public function index()
     {
         $jurusan = Jurusan::all();
-        $gelombang = Gelombang::all();
+        $gelombang = Gelombang::where('aktif','1')->get();
         $peserta = Peserta_Pelatihan::get();
         return view('pendaftaran.index',compact('peserta','jurusan','gelombang'));
     }
@@ -55,7 +55,7 @@ class PendaftaranController extends Controller
             'aktivitas_saat_ini'=>$request->aktivitas_saat_ini,
             'status'=>$request->status
         ]);
-        
+
         return redirect()->route('peserta.index')->with('success', 'Pendaftaran Berhasil');
     }
 
